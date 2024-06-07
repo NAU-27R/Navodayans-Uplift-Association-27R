@@ -1,0 +1,11 @@
+{
+  "name": "jnv-27_charity_fund_server",
+  "version": "1.0.0",
+  "description": "Its a server for jnv-27 charity fund website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayank Kumar Ratre",
+  "license": "ISC"
+}
