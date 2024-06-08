@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { auth } from "../authentication/firebaseConfig";
+import {Link} from 'react-router-dom';
+import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { sendEmailVerification } from "firebase/auth";
-const MessageWindow = ({ verified, setVerified }) => {
+const MessageWindow = ({ verified, setVerified, memberStatus}) => {
   const [message, setMessage] = useState("");
+
 
   const sendLink = () => {
     const user = auth.currentUser;
@@ -47,7 +50,7 @@ const MessageWindow = ({ verified, setVerified }) => {
           </p>
         </>
       )}
-      {verified && (
+      {verified && !memberStatus && (
         <>
           <h3>User Not In The Member List</h3>
           <p>
@@ -57,12 +60,24 @@ const MessageWindow = ({ verified, setVerified }) => {
           </p>
         </>
       )}
+      {verified && memberStatus && (
+        <>
+          <h3>Welcome To The JNVR-27 Charity Fund</h3>
+          <p>
+            Make your contribution today. If you find any problem contact Sanjay Nishad
+          </p>
+        </>
+      )}
       <span className="message">{message}</span>
       <div className="btns">
-        <button className="logout_btn" onClick={() => auth.signOut()}>
+        {!memberStatus && <button className="logout_btn" onClick={() => auth.signOut()}>
           {" "}
           Log Out
-        </button>
+        </button>}
+        {verified && memberStatus && <Link className="donate_btn" to='/donate'>
+          {" "}
+          <RiMoneyRupeeCircleLine size={25}/> Donate Here 
+        </Link>}
         { !verified && <button className="link_btn" onClick={() => sendLink()}>
           {" "}
           Send Link

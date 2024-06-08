@@ -28,9 +28,25 @@ const SignUp = ({ setValue }) => {
         console.log("successfull sign up:",data)
       })
       .catch((err) => {
-        // 
         alert("Something Went Wrong",err.message)
     
+      });
+  };
+  const sendLink = () => {
+    const user = auth.currentUser;
+    if (!user) return;
+    sendEmailVerification(user)
+      .then(() => {       
+        console.log("email verification link sent:");
+      })
+      .catch((error) => {
+        console.log(
+          "error on sending verification link:",
+          "message:",
+          error.message,
+          "code:",
+          error.code
+        );
       });
   };
 
@@ -44,6 +60,7 @@ const SignUp = ({ setValue }) => {
       createUserWithEmailAndPassword(auth,email,password)
       .then((userCredential)=>{
         console.log("User is created successfully:",userCredential);
+        sendLink();
         setValue("Sign In")
       })
       .catch((error)=>{
@@ -98,7 +115,7 @@ const SignUp = ({ setValue }) => {
       <hr className="line" />
       <span className="google" onClick={singInWithGoogle} ref={googleref}>
         <FcGoogle size={25} className="icon" />
-        Sign In With Google
+        Sign Up With Google
       </span>
       <span className="sign">
         Already have an account?{" "}

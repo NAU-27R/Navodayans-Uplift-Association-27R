@@ -115,4 +115,35 @@
             height: 1.5;
         }
     }
+    .donate_btn {
+        display: flex;
+        text-decoration: none;
+        font-family: "Work Sans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-size: 1.25rem;
+        width: 10rem;
+        height: 3rem;
+        background-color: rgb(4, 153, 163);
+        // border: 1px solid red;
+        border: none;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        margin-top: 1rem;
+        box-shadow: rgb(38, 57, 77) 0px 10px 20px -7px;
+
+        @include sm {
+            font-size: 1.1rem;
+            min-width: 9rem;
+            height: 2.5rem;
+        }
+
+        @include xsm {
+            font-size: .9rem;
+            width: 7rem;
+            height: 2rem;
+        }
+    }
 }

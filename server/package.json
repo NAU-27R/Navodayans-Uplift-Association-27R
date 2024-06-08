@@ -1,11 +1,21 @@
 {
-  "name": "jnv-27_charity_fund_server",
+  "name": "jnvr-27_charity_fund_server",
   "version": "1.0.0",
-  "description": "Its a server for jnv-27 charity fund website",
+  "description": "Its a server for jnvr-27 charity fund website",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
   "author": "Mayank Kumar Ratre",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase": "^10.12.2",
+    "firebase-admin": "^12.1.1",
+    "nodemon": "^3.1.3",
+    "razorpay": "^2.9.4"
+  }
 }

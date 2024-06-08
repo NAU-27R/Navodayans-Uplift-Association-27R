@@ -29,7 +29,7 @@
         @include sm{
             margin:30% 0 10% 0;
             width: 100%;
-            max-height: fit-content;
+            min-height: fit-content;
             font-size: .9rem;
         }
         @include xsm{

@@ -1,9 +1,13 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Home from './pages/home/Home'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useState } from 'react'
-import Header from './component/header/Header'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { auth } from './component/authentication/firebaseConfig'
+
+import Header from './component/header/Header'
+import Home from './pages/home/Home'
+import Donate from './pages/donate/Donate'
+import Transactions from './pages/transactions/Transactions'
+import Members from './pages/members/Members'
 
 const App = () => {
   const [showHeader,setShowHeader] = useState(false);
@@ -20,6 +24,9 @@ const App = () => {
       {showHeader && <Header/>}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/donate" element={<Donate />} />
         
         
       </Routes>

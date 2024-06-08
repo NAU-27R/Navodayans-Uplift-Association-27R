@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../authentication/firebaseConfig";
 import { TfiMenu } from "react-icons/tfi";
 
@@ -9,29 +9,13 @@ const Header = () => {
   const [showMobileView, setShowMobileView] = useState(false);
   const [showMobileNavigation, setShowMobileNavigation] = useState(false);
 
+  const navigate = useNavigate();
+
   const checkScreeSize = () => {
     if (window.innerWidth <= 700) {
       setShowMobileView(true);
     } else setShowMobileView(false);
   };
-
-  //   document.body.onmouseup = ()=>setShowMobileNavigation(false);
-  //   window.addEventListener('click', function(e){
-  //     if(!(showMobileView && showMobileNavigation) )return;
-  //     if (document.getElementById('mobile_link_container').contains(e.target)){
-  //       // Clicked in box
-  //     } else{
-  //         setShowMobileNavigation(false);
-  //     }
-  //   });
-
-//   const checkClick = (e) => {
-//     if (!(showMobileView && showMobileNavigation)) return;
-//     console.log(showMobileNavigation);
-//     if (!document.getElementById("mobile_link_container").contains(e.target)) {
-//       setShowMobileNavigation(false);
-//     }
-//   };
 
   useEffect(() => {
     checkScreeSize();
@@ -56,7 +40,7 @@ const Header = () => {
           <Link className="link" to="/transactions">
             My Transactions
           </Link>
-          <Link className="link" to="/transactions">
+          <Link className="link" to="/donate">
             Donate
           </Link>
         </div>
@@ -74,7 +58,7 @@ const Header = () => {
                 ? auth.currentUser.email
                 : "mayankratre100@gmail.com"}
             </p>
-            <button className="log_out">Log Out</button>
+            <button onClick={()=>{auth.signOut(); navigate('/')}} className="log_out">Log Out</button>
           </>
         )}
       </div>
