@@ -2,15 +2,14 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://mayankratre10.github.io/react-gh-pages",
+  "homepage": "https://mayankratre10.github.io/JNVR-27_Charity_Fund/JNVR-27",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.7.2",
