@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import "./style.scss";
 
-const SignIn = ({ setValue }) => {
+const SignIn = ({ setState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -35,13 +35,13 @@ const SignIn = ({ setValue }) => {
         const user = userCredential.user;
         if (user.emailVerified === false) {
           console.log("Please Verify Your Email ID");
-          setValue("authenticated")
+          setState("authenticated")
           // auth.signOut();
         } else console.log("Successfull Signin", user);
       })
       .catch((error) => {
         alert("User Not Fount Please Sign Up First", error);
-        setValue("Sign Up");
+        setState("Sign Up");
       });
   };
 
@@ -82,9 +82,9 @@ const SignIn = ({ setValue }) => {
       <span className="sign">
         Don't have an account?{" "}
         <span
-          className="setValue"
+          className="setState"
           onClick={() => {
-            setValue("Sign Up");
+            setState("Sign Up");
           }}
         >
           Sign Up

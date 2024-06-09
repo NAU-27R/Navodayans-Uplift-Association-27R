@@ -15,7 +15,7 @@ const actionCodeSettings = {
   handleCodeInApp: true
 };
 
-const SignUp = ({ setValue }) => {
+const SignUp = ({ setState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -54,14 +54,18 @@ const SignUp = ({ setValue }) => {
     e.preventDefault();
     if (userName.length == 0 || password.length < 6 || email.length == 0) {
       if (password.length < 6) {
-        alert("Password Cannot Be Less Than 6 Digits");
+        // alert("Password Cannot Be Less Than 6 Digits");
+        setErrMessage("Password Cannot Be Less Than 6 Digits");
+        setTimeout(() => {
+          setErrMessage("")
+        }, 5000);
       } else alert("Please Provdie Necessary Details");
     } else {
       createUserWithEmailAndPassword(auth,email,password)
       .then((userCredential)=>{
         console.log("User is created successfully:",userCredential);
         sendLink();
-        setValue("Sign In")
+        setState("Sign In")
       })
       .catch((error)=>{
         console.log("Error on creating user:","message:", error.message,"code:",error.code)
@@ -120,9 +124,9 @@ const SignUp = ({ setValue }) => {
       <span className="sign">
         Already have an account?{" "}
         <span
-          className="setValue"
+          className="setState"
           onClick={() => {
-            setValue("Sign In");
+            setState("Sign In");
           }}
         >
           Sign In

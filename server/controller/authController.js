@@ -14,7 +14,7 @@ const authenticate = async (req, res, next) => {
 
     try {
         const authUser = await admin.auth().verifyIdToken(accessToken);
-        console.log("Verified User");
+        // console.log("Verified User");
         req.userData = {
             "email":authUser.email
         }

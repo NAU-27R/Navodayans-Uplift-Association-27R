@@ -31,16 +31,16 @@ const Header = () => {
     <div className="header_container">
       {!showMobileView && (
         <div className="link_container">
-          <Link className="link" to="/">
+          <Link className="link" to="/JNVR-27/">
             Home
           </Link>
-          <Link className="link" to="/members">
+          <Link className="link" to="/JNVR-27/members">
             Members
           </Link>
-          <Link className="link" to="/transactions">
+          <Link className="link" to="/JNVR-27/transactions">
             My Transactions
           </Link>
-          <Link className="link" to="/donate">
+          <Link className="link" to="/JNVR-27/donate">
             Donate
           </Link>
         </div>
@@ -58,7 +58,7 @@ const Header = () => {
                 ? auth.currentUser.email
                 : "mayankratre100@gmail.com"}
             </p>
-            <button onClick={()=>{auth.signOut(); navigate('/')}} className="log_out">Log Out</button>
+            <button onClick={()=>{auth.signOut(); navigate('/JNVR-27/')}} className="log_out">Log Out</button>
           </>
         )}
       </div>
@@ -67,16 +67,16 @@ const Header = () => {
       )}
       {showMobileView && showMobileNavigation && (
         <div className="mobile_link_container" id="mobile_link_container" onClick={()=>setShowMobileNavigation(false)}>
-          <Link className="mobile_link" to="/" >
+          <Link className="mobile_link" to="/JNVR-27/" >
             Home
           </Link>
-          <Link className="mobile_link" to="/members">
+          <Link className="mobile_link" to="/JNVR-27/members">
             Members
           </Link>
-          <Link className="mobile_link" to="/transactions">
+          <Link className="mobile_link" to="/JNVR-27/transactions">
             My Transactions
           </Link>
-          <Link className="mobile_link" to="/transactions">
+          <Link className="mobile_link" to="/JNVR-27/transactions">
             Donate
           </Link>
           <Link className="mobile_link" onClick={()=>{auth.signOut();console.log(auth.currentUser)}}>

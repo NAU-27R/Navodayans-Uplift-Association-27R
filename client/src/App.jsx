@@ -8,6 +8,9 @@ import Home from './pages/home/Home'
 import Donate from './pages/donate/Donate'
 import Transactions from './pages/transactions/Transactions'
 import Members from './pages/members/Members'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost:3000';
 
 const App = () => {
   const [showHeader,setShowHeader] = useState(false);
@@ -23,10 +26,10 @@ const App = () => {
     <BrowserRouter>
       {showHeader && <Header/>}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/transactions" element={<Transactions />} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="/JNVR-27" element={<Home />} />
+        <Route path="/JNVR-27/members" element={<Members />} />
+        <Route path="/JNVR-27/transactions" element={<Transactions />} />
+        <Route path="/JNVR-27/donate" element={<Donate />} />
         
         
       </Routes>

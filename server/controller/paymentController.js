@@ -13,6 +13,7 @@ const createOrder = async (req, res, next) => {
         }
 
         const options = req.body;
+        // console.log(options)
         const order = await razorpay.orders.create(options);
 
         if (!order) return res.status(400).send("Bad Request");
@@ -21,7 +22,7 @@ const createOrder = async (req, res, next) => {
 
     }
     catch (error) {
-        console.log(error.message);
+        console.log(error);
         res.status(500).send(error.message);
     }
 }

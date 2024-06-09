@@ -74,7 +74,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
           {" "}
           Log Out
         </button>}
-        {verified && memberStatus && <Link className="donate_btn" to='/donate'>
+        {verified && memberStatus && <Link className="donate_btn" to='/JNVR-27/donate'>
           {" "}
           <RiMoneyRupeeCircleLine size={25}/> Donate Here 
         </Link>}

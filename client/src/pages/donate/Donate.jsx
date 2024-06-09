@@ -8,19 +8,25 @@ const Donate = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState("HOLD");
   const [errorDetail, setErrorDetail] = useState(null);
-
+  const [donation, setDonation] = useState();
   const navigate = useNavigate();
 
   const paymentHandler = async (event) => {
-    setPaymentStatus("PROCESSING");
     if (!auth.currentUser) {
       console.log("Cant find Current user, payment handler");
       return;
     }
+    console.log(donation * 100);
+    if (donation > 10000 || donation < 50 || isNaN(donation) === true) {
+      console.log("error");
+      return;
+    }
+    setPaymentStatus("PROCESSING");
+
     const token = await auth.currentUser.getIdToken(true);
-    const amount = 500;
     const currency = "INR";
     const receiptId = "q945-4u09ii0i";
+    const amount = donation * 100;
 
     const response = await fetch("http://localhost:3000/order", {
       method: "POST",
@@ -36,14 +42,11 @@ const Donate = () => {
     });
 
     const order = await response.json();
-
-    console.log(order);
-
     var options = {
       key: "",
       amount,
       currency,
-      name: "Mayank Corporation",
+      name: "JNVR-27 Charity Fund",
       description: "Test Transaction",
       image: { logo },
       order_id: order.id,
@@ -61,19 +64,17 @@ const Donate = () => {
 
         const jsonResponse = await validateResponse.json();
         console.log(jsonResponse);
-        if(jsonResponse.paymentValidation) {
+        if (jsonResponse.paymentValidation) {
           setPaymentStatus("DONE");
-          setTimeout(()=>{
-            navigate('/')
-          },10000)
-        }
-        else setPaymentStatus("INVALID");
+          setTimeout(() => {
+            navigate("/");
+          }, 10000);
+        } else setPaymentStatus("INVALID");
       },
 
       prefill: {
-        name: "Gaurav Kumar",
+        // name: auth.currentUser.displayName,
         email: auth.currentUser.email,
-        // contact: "9000090000",
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -86,13 +87,6 @@ const Donate = () => {
     var rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
       setPaymentStatus("ERROR");
-      // alert(response.error.code);
-      // alert(response.error.description);
-      // alert(response.error.source);
-      // alert(response.error.step);
-      // alert(response.error.reason);
-      // alert(response.error.metadata.order_id);
-      // alert(response.error.metadata.payment_id);
       setErrorDetail({
         "Error Code:": response.error.code,
         "Error description:": response.error.description,
@@ -100,8 +94,8 @@ const Donate = () => {
         "Error step:": response.error.step,
         "Error reason:": response.error.reason,
         "Error Order ID:": response.error.metadata.order_id,
-        "Error Payment ID": response.error.metadata.payment_id
-      })
+        "Error Payment ID": response.error.metadata.payment_id,
+      });
     });
 
     rzp1.open();
@@ -110,6 +104,10 @@ const Donate = () => {
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
+  };
+
+  const handleAmountChange = (event) => {
+    setDonation(event.target.value);
   };
 
   return (
@@ -173,23 +171,60 @@ const Donate = () => {
                 I agree to the terms and conditions.
               </label>
             </div>
-            <button onClick={paymentHandler} disabled={!isChecked}>
+            <div className="amount_container">
+              <label htmlFor="input_amount">Enter your donation</label>
+              <div className="amount_div">
+                <span className="symbol">&#8377;</span>
+                <input
+                  type="number"
+                  onChange={(event) => handleAmountChange(event)}
+                  id="input_amount"
+                  placeholder="50.00"
+                  value={donation}
+                />
+              </div>
+            </div>
+            <p className="amount_range">
+              Amount Must Be In The Range: 50 to 10000
+            </p>
+            <button
+              onClick={paymentHandler}
+              disabled={
+                !(
+                  isChecked &&
+                  donation >= 50 &&
+                  donation <= 10000 &&
+                  isNaN(donation) === false
+                )
+              }
+            >
               Continue
             </button>
           </div>
         </>
       )}
-      {paymentStatus === "PROCESSING" && <h2 className="processing">Your Payment Under Process...</h2>}
-      {paymentStatus === "DONE" && <>
-        <h2 className="success">Your Payment Completed. Thanks For Contribution...</h2>
-        <p>You Will Be Redired To Home Shortly.</p>
-        </>}
+      {paymentStatus === "PROCESSING" && (
+        <h2 className="processing">Your Payment Under Process...</h2>
+      )}
+      {paymentStatus === "DONE" && (
+        <>
+          <h2 className="success">
+            Your Payment Completed. Thanks For Contribution...
+          </h2>
+          <p>You Will Be Redired To Home Shortly.</p>
+        </>
+      )}
       {paymentStatus === "INVALID" && (
-        <h2 className="failed">Your Payment Is INVALID. Please Consult With Head...</h2>
+        <h2 className="failed">
+          Your Payment Is INVALID. Please Consult With Head...
+        </h2>
       )}
       {paymentStatus === "ERROR" && (
         <>
-          <h2 className="failed">Your Payment Failed. Details...Please Contact Head If Your Money Is Deducted</h2>
+          <h2 className="failed">
+            Your Payment Failed. Details...Please Contact Head If Your Money Is
+            Deducted
+          </h2>
           <p>{errorDetail}</p>
         </>
       )}
