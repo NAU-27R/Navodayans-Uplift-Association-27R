@@ -68,8 +68,8 @@ const Donate = () => {
         <h2>Donate Here</h2>
         <h3>Disclaimer:</h3>
         <p> As Navodayans Uplift Association 27R is not a registered association or group or committee. All issues related to payment, funds, website, transactions, transaparency, payment distribution and any dispute will be solved through mutual conversation between Heads ("SANJAY NISHAD") and group members. Also no refund will be provided unless its done by mistake for members only. This website does not take any responsibility.   </p>
-          <p>Please Read All <a href="/Navodayans-Uplift-Association-27R/terms_conditions" target='_blank'>Terms and Conditions</a> before you proceed</p>
-          <p id='idea'>By Donating or using the Website, you agree to be bound by these <a href="/Navodayans-Uplift-Association-27R/terms_conditions" target='_blank'>Terms and Conditions</a></p>
+          <p>Please Read All <a href="/Navodayans-Uplift-Association-27R/terms_conditions">Terms and Conditions</a> before you proceed</p>
+          <p id='idea'>By Donating or using the Website, you agree to be bound by these <a href="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</a></p>
         <div className="checkbox-container">
           <input
             type="checkbox"
@@ -84,7 +84,7 @@ const Donate = () => {
               }, 1000);
             }}
           />
-          <label htmlFor="agree-terms">I Agree to <a href="/Navodayans-Uplift-Association-27R/terms_conditions" target='_blank'>Terms and Conditions</a></label>
+          <label htmlFor="agree-terms">I Agree to <a href="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</a></label>
         </div>
         
       <form className='btn' id="rzp_payment_form"></form>

@@ -11,6 +11,7 @@ import Members from './pages/members/Members'
 import axios from 'axios'
 import TermsConditions from './pages/termsCondtions/TermsConditions'
 import PrivacyPolicy from './pages/privacy_policy/privacyPolicy'
+import Page404 from './pages/404/page404'
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
 
@@ -35,7 +36,7 @@ const App = () => {
         <Route path="/Navodayans-Uplift-Association-27R/terms_conditions" element={<TermsConditions />} />
         <Route path="/Navodayans-Uplift-Association-27R/privacy_policy" element={<PrivacyPolicy />} />
         
-        
+        <Route path='*' element={<Page404/>} />
       </Routes>
     </BrowserRouter>
   )
