@@ -10,13 +10,13 @@ import "./style.scss";
 
 
 const Home = () => {
-  axios.defaults.baseURL = 'http://localhost:3000';
+  axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
   const [state, setState] = useState("Sign In");
   const [verified, setVerified] = useState(false);
   const [memberStatus, setMemberStatus] = useState(false);
 
   const checkMemberStatus = async()=>{
-    const token = await auth.currentUser.getIdToken(true);
+    const token = await auth.currentUser.getIdToken();
         
         // console.log("making request to see member status")
         axios
@@ -59,7 +59,7 @@ const Home = () => {
         <p>
           We are Jawahar Navaodya Vidyalaya Raipur, Students of 27th Batch. This
           community motives to collect funds and help the members in their
-          struggling phase. Donate today to contribute towards better future
+          struggling phase. Donate today to donate towards better future
         </p>
       </div>
       {state === "Sign In" && <SignIn setState={setState} />}

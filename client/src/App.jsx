@@ -9,6 +9,8 @@ import Donate from './pages/donate/Donate'
 import Transactions from './pages/transactions/Transactions'
 import Members from './pages/members/Members'
 import axios from 'axios'
+import TermsConditions from './pages/termsCondtions/TermsConditions'
+import PrivacyPolicy from './pages/privacy_policy/privacyPolicy'
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
@@ -26,10 +28,12 @@ const App = () => {
     <BrowserRouter>
       {showHeader && <Header/>}
       <Routes>
-        <Route path="/JNVR-27" element={<Home />} />
-        <Route path="/JNVR-27/members" element={<Members />} />
-        <Route path="/JNVR-27/transactions" element={<Transactions />} />
-        <Route path="/JNVR-27/donate" element={<Donate />} />
+        <Route path="/Navodayans-Uplift-Association-27R" element={<Home />} />
+        <Route path="/Navodayans-Uplift-Association-27R/members" element={<Members />} />
+        <Route path="/Navodayans-Uplift-Association-27R/transactions" element={<Transactions />} />
+        <Route path="/Navodayans-Uplift-Association-27R/donate" element={<Donate />} />
+        <Route path="/Navodayans-Uplift-Association-27R/terms_conditions" element={<TermsConditions />} />
+        <Route path="/Navodayans-Uplift-Association-27R/privacy_policy" element={<PrivacyPolicy />} />
         
         
       </Routes>

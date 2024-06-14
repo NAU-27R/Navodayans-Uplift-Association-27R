@@ -2,14 +2,15 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://mayankratre10.github.io/JNVR-27_Charity_Fund/JNVR-27",
+  "homepage": "https://mayankratre10.github.io/Navodayans-Uplift-Association-27R/",
   "type": "module",
   "scripts": {
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "dev": "vite"
   },
   "dependencies": {
     "axios": "^1.7.2",

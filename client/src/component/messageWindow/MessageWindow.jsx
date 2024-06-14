@@ -62,7 +62,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
       )}
       {verified && memberStatus && (
         <>
-          <h3>Welcome To The JNVR-27 Charity Fund</h3>
+          <h3>Welcome To The Navodayans Uplift Association 27R</h3>
           <p>
             Make your contribution today. If you find any problem contact Sanjay Nishad
           </p>
@@ -74,7 +74,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
           {" "}
           Log Out
         </button>}
-        {verified && memberStatus && <Link className="donate_btn" to='/JNVR-27/donate'>
+        {verified && memberStatus && <Link className="donate_btn" to='/Navodayans-Uplift-Association-27R/donate'>
           {" "}
           <RiMoneyRupeeCircleLine size={25}/> Donate Here 
         </Link>}

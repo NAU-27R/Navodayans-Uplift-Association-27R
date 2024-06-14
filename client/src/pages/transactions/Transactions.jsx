@@ -4,13 +4,13 @@ import "./style.scss";
 import axios from "axios";
 
 const Transaction = () => {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
   const [transactionList, SetTransactionList] = useState([]);
   const [transactionListHead, setTransactionListHead] = useState([]);
   const [state, setState] = useState("loading");
 
   const fetchTransactionList = async () => {
-    const token = await auth.currentUser.getIdToken(true);
+    const token = await auth.currentUser.getIdToken();
     // console.log("making request to see transaction List");
     axios
       .get("/transactions", {

@@ -4,13 +4,13 @@ import { auth } from "../../component/authentication/firebaseConfig";
 import axios from "axios";
 
 const Members = () => {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
   const [memberList, setMemberList] = useState(null);
 
   const [state, setState] = useState("loading");
 
   const getMemberList = async () => {
-    const token = await auth.currentUser.getIdToken(true);
+    const token = await auth.currentUser.getIdToken();
     // console.log("making request to get member List");
     axios
       .get("/members", {
@@ -38,7 +38,7 @@ const Members = () => {
       {state === "loading" && <h1>Fetching Member List. Please Wait......</h1>}
       {state === "loaded" && (
         <>
-          <h1>JNVR-27 Charity Fund Members</h1>
+          <h1>Navodayans Uplift Association 27R Members</h1>
           <table className="list">
             <thead>
               <tr className="head_row">
