@@ -12,7 +12,7 @@ import axios from 'axios'
 import TermsConditions from './pages/termsCondtions/TermsConditions'
 import PrivacyPolicy from './pages/privacy_policy/privacyPolicy'
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
 
 const App = () => {
   const [showHeader,setShowHeader] = useState(false);

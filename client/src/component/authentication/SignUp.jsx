@@ -10,10 +10,6 @@ import "./style.scss";
 
 import { FcGoogle } from "react-icons/fc";
 
-const actionCodeSettings = {
-  url: "http://localhost:5173/emailVerfication",
-  handleCodeInApp: true
-};
 
 const SignUp = ({ setState }) => {
   const [email, setEmail] = useState("");

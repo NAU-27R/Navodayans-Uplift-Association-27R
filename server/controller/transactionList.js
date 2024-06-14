@@ -41,6 +41,7 @@ const transactionList = async (req, res) => {
                     let date = new Date(created_at*1000);
                     // console.log(created_at);
                     date = date.toDateString()
+                    // console.log(transaction);
                     userTransactionList.push(JSON.stringify({
                         Date: date,Status:status, Amount:amount/100,  Email: email, Contact:contact, Method:method,Fee:fee/100, "Tax(GST)":tax/100, Error:error_description, Description: description,
                     }))
