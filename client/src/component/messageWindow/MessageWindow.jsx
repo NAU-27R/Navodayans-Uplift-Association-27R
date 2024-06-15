@@ -52,7 +52,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
       )}
       {verified && !memberStatus && (
         <>
-          <h3>User Not In The Member List</h3>
+          <h3>User not in the Member List</h3>
           <p>
           You must be a registered member to access member benefits, make donations, or view the transactions list. For membership inquiries, please contact the head - Sanjay Nishad. You may already have his contact information if you are from the same class.
           </p>
@@ -60,9 +60,10 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
       )}
       {verified && memberStatus && (
         <>
-          <h3>Welcome To The Navodayans Uplift Association 27R</h3>
+          <h3>Welcome to the Navodayans Uplift Association 27R!
+          </h3>
           <p>
-            Make your contribution today. If you find any problem contact Sanjay Nishad
+          Make your contribution today. If you encounter any issues, please contact Sanjay Nishad.
           </p>
         </>
       )}

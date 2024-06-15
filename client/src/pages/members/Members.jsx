@@ -43,6 +43,7 @@ const Members = () => {
           <table className="list">
             <thead>
               <tr className="head_row">
+                <th className="head">S.No.</th>
                 <th className="head">Name</th>
                 <th className="head">Email</th>
                 <th className="head">Joined Since</th>
@@ -50,14 +51,16 @@ const Members = () => {
             </thead>
             <tbody >
               {memberList &&
-                Object.entries(memberList).map(([key, value]) => {
+                Object.entries(memberList).map(([key, value],index) => {
                   let date = new Date(
                     value.date_of_joining._seconds * 1000 +
                       value.date_of_joining._nanoseconds / 1000000
                   );
                   date = date.toDateString();
+                  console.log(key)
                   return (
                     <tr key={value.email} className="data_row">
+                      <td className="data">{index+1}</td>
                       <td className="data">{value.name}</td>
                       <td className="data">{value.emails[0]}</td>
                       <td className="data">{date}</td>

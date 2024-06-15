@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../../component/authentication/firebaseConfig";
 import "./style.scss";
 import axios from "axios";
+import { json } from "react-router-dom";
 
 const Transaction = () => {
   axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
@@ -70,12 +71,16 @@ const Transaction = () => {
               // console.log(data);
               const jsonObject = JSON.parse(data);
               // console.log(jsonObject, typeof jsonObject);
-              
+              console.log(jsonObject)
               return <tr className="data_row" key={key}>
                 {Object.entries(jsonObject).map(([key, value]) => {
                   // console.log(value,typeof(value));
                   if(typeof(value)==='number')return <td className="data">&#8377;{value.toFixed(2)}</td>
-                  return <td className="data">{value?value:"N/A"}</td>;
+                  return (
+                    <>
+                  <td className="data">{value?value:"N/A"}</td>
+                  </>
+                );
                 })}
               </tr>
             })}

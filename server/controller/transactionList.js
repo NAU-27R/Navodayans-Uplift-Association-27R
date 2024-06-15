@@ -42,7 +42,9 @@ const transactionList = async (req, res) => {
                     // console.log(created_at);
                     date = date.toDateString()
                     // console.log(transaction);
+                    // console.log((userTransactionList.length+1).toString())
                     userTransactionList.push(JSON.stringify({
+                        "S.No.":(userTransactionList.length+1).toString(),
                         Date: date,Status:status, Amount:amount/100,  Email: email, Contact:contact, Method:method,Fee:fee/100, "Tax(GST)":tax/100, Error:error_description, Description: description,
                     }))
 
