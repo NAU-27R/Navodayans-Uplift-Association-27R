@@ -10,6 +10,7 @@ const Transaction = () => {
   const [state, setState] = useState("loading");
 
   const fetchTransactionList = async () => {
+    if(!auth.currentUser)return;
     const token = await auth.currentUser.getIdToken();
     // console.log("making request to see transaction List");
     axios

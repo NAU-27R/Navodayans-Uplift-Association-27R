@@ -25,7 +25,7 @@ app.get('/isMember',authenticate,isMember)
 app.get('/members',authenticate, memberList)
 app.get('/transactions',authenticate,transactionList)
 app.get('/terms',authenticate,termsAndCondition);
-app.get('/policy',authenticate,privacyPolicy);
+app.get('/policy',privacyPolicy);
 
 
 app.listen(process.env.PORT | 3000, () => {

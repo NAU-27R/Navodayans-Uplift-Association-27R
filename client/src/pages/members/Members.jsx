@@ -10,6 +10,7 @@ const Members = () => {
   const [state, setState] = useState("loading");
 
   const getMemberList = async () => {
+    if(!auth.currentUser)return;
     const token = await auth.currentUser.getIdToken();
     // console.log("making request to get member List");
     axios

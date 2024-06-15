@@ -16,6 +16,7 @@ const Home = () => {
   const [memberStatus, setMemberStatus] = useState(false);
 
   const checkMemberStatus = async()=>{
+    if(!auth.currentUser)return;
     const token = await auth.currentUser.getIdToken();
         
         // console.log("making request to see member status")
@@ -57,9 +58,7 @@ const Home = () => {
       <div className="motive">
         <h2>Who We Are</h2>
         <p>
-          We are Jawahar Navaodya Vidyalaya Raipur, Students of 27th Batch. This
-          community motives to collect funds and help the members in their
-          struggling phase. Donate today to donate towards better future
+        We are proud alumni of Jawahar Navodaya Vidyalaya, Raipur, 27th Batch (2012 - 2019). This community is dedicated to supporting each other through life's challenges by raising funds and assisting those in need. Join us in making a difference—donate today and help build a brighter future for our fellow members.
         </p>
       </div>
       {state === "Sign In" && <SignIn setState={setState} />}

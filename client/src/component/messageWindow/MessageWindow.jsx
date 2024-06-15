@@ -54,9 +54,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
         <>
           <h3>User Not In The Member List</h3>
           <p>
-            To be able to donate, access to members and transactions list. You
-            should be a member. Please Contact Head. Sanjay Nishad. If you are
-            from class you probably have the contact
+          You must be a registered member to access member benefits, make donations, or view the transactions list. For membership inquiries, please contact the head - Sanjay Nishad. You may already have his contact information if you are from the same class.
           </p>
         </>
       )}

@@ -6,6 +6,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 const SignIn = ({ setState }) => {
   const [email, setEmail] = useState("");
@@ -70,7 +71,7 @@ const SignIn = ({ setState }) => {
           name="password"
           onChange={handleChange}
         />
-        <p className="privacy">By creating or accessing an account on this website you agree with our <a href="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</a></p>
+        <p className="privacy">By creating or accessing an account on this website you agree with our <Link to="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</Link></p>
         <button className="btn" type="submit">
           Sign In
         </button>

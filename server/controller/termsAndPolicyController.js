@@ -18,6 +18,7 @@ const termsAndCondition = async (req, res) => {
     }
 }
 const privacyPolicy = async (req, res) => {
+    // console.log(req)
     try {
         const docRef = admin.firestore().collection('JNVR-27_Charity_Fund').doc('Privacy_Policy');
         const docSnapshot = await docRef.get();

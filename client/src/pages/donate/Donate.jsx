@@ -67,9 +67,9 @@ const Donate = () => {
       {memberStatus && <div className='donate_window'>
         <h2>Donate Here</h2>
         <h3>Disclaimer:</h3>
-        <p> As Navodayans Uplift Association 27R is not a registered association or group or committee. All issues related to payment, funds, website, transactions, transaparency, payment distribution and any dispute will be solved through mutual conversation between Heads ("SANJAY NISHAD") and group members. Also no refund will be provided unless its done by mistake for members only. This website does not take any responsibility.   </p>
+        <p> As the Navodayans Uplift Association 27R is not a registered association, group, or committee, all matters related to payments, funds, website functionality, transactions, transparency, payment distribution, and disputes will be resolved through mutual discussions among the Head, Sanjay Nishad, and group members. Refunds will only be issued in cases of mistaken payments and only to members.</p>
           <p>Please Read All <a href="/Navodayans-Uplift-Association-27R/terms_conditions">Terms and Conditions</a> before you proceed</p>
-          <p id='idea'>By Donating or using the Website, you agree to be bound by these <a href="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</a></p>
+          <p id='idea'>By donating or using this website, I agree to these <a href="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</a></p>
         <div className="checkbox-container">
           <input
             type="checkbox"

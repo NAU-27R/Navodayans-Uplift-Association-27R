@@ -9,14 +9,10 @@ const PrivacyPolicy = () => {
 
   const [policy, setPolicy] = useState([]);
 
-  const getTermsConditions = async () => {
-    const token = await auth.currentUser.getIdToken();
+  const getPrivacyPolicy = async () => {
 
     axios
       .get("/policy", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       })
       .then((response) => {
         setPolicy(response.data.Policy);
@@ -24,13 +20,13 @@ const PrivacyPolicy = () => {
       })
       .catch((error) => {
         setPolicy([]);
-        console.log("error on checking member List", error);
+        console.log("error on checking privacy policy List", error);
       });
   };
 
   useEffect(() => {
-    getTermsConditions();
-  }, [auth.currentUser]);
+    getPrivacyPolicy();
+  }, []);
 
   return (
     <div className="policy_container">
