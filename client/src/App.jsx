@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { auth } from './component/authentication/firebaseConfig'
 
 import Header from './component/header/Header'
+import Footer from './component/footer/Footer'
 import Home from './pages/home/Home'
 import Donate from './pages/donate/Donate'
 import Transactions from './pages/transactions/Transactions'
@@ -36,8 +37,9 @@ const App = () => {
         <Route path="/Navodayans-Uplift-Association-27R/terms_conditions" element={<TermsConditions />} />
         <Route path="/Navodayans-Uplift-Association-27R/privacy_policy" element={<PrivacyPolicy />} />
         
-        <Route path='*' element={<Page404/>} />
+        {/* <Route path='*' element={<Page404/>} /> */}
       </Routes>
+        {showHeader && <Footer/>}
     </BrowserRouter>
   )
 }

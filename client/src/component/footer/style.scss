@@ -1,0 +1,90 @@
+@import "../../mixins.scss";
+
+.footer {
+
+    background-color: var(--black2);
+    padding: 50px 0;
+    color: white;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .infoText {
+        font-size: 12px;
+        line-height: 20px;
+        opacity: 0.5;
+        text-align: center;
+        max-width: 95%;
+        margin: 0 0 3rem 0;
+
+        @include md {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+    }
+
+    // .socialIcons {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     gap: 10px;
+    //     .icon {
+    //         width: 50px;
+    //         height: 50px;
+    //         border-radius: 50%;
+    //         background-color: var(--black);
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         border: 1px solid;
+    //         cursor: pointer;
+    //         transition: all ease 0.3s;
+    //         &:hover {
+    //             box-shadow: 0 0 1rem var(--dark);
+    //             color: var(--dark);
+    //         }
+    //     }
+    // }
+    .info_container {
+        display: flex;
+        direction: row;
+        // color: gray;
+        width: 100%;
+        justify-content: space-around;
+        // padding-left: 20%;
+        h4{
+            margin-bottom: 1rem;
+        }
+        .link_container {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+
+            .link {
+                font-size: .8rem;
+                margin-bottom: .5rem;
+                color: gray;
+                text-decoration: none;
+            }
+        }
+
+        .contact_container{
+            display: flex;
+            flex-direction: column;
+            min-width: 30%;
+            
+            .contact {
+                font-size: .8rem;
+                margin-bottom: .5rem;
+                color: gray;
+                display: flex;
+                align-items: center;
+                .icon{
+                    margin:0 .5rem 0 0;
+                }
+            }
+        }
+
+    }
+}

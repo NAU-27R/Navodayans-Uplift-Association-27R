@@ -24,8 +24,17 @@
         min-height: fit-content;
     }
     .motive{
+        color: rgb(0, 0, 0);
+        // text-decoration: underline;
+        // text-decoration-color: white;
+        // font-weight: 500;
         width: 40%;
         min-height: 40%;
+        // h2{
+        //     color: white;
+        //     // text-decoration: underline;
+        //     // text-decoration-color: white;
+        // }
         @include sm{
             margin:30% 0 10% 0;
             width: 100%;

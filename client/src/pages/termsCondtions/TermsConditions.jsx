@@ -37,7 +37,7 @@ const TermsConditions = () => {
     <div className="terms_container">
       <h1>Terms and Conditions</h1>
       <p>Welcome to the Navodayans Uplift Association Website ("Website").</p>
-      {auth.currentUser && <h2>Please Sign In To See Terms And Conditions </h2>}
+      {!auth.currentUser && <h2>Please Sign In To See Terms And Conditions </h2>}
       {terms.length != 0 &&
         Object.entries(terms).map(([key, value]) => {
           // console.log(key,value);
