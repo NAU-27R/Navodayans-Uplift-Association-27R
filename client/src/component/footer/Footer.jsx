@@ -21,20 +21,6 @@ const Footer = () => {
         Non, distinctio eos? Nostrum commodi quia voluptatem!
       </div>
 
-      {/* <div className="socialIcons">
-                    <span className="icon">
-                        <SiGithub />
-                    </span>
-                    <span className="icon">
-                        <SiLinkedin />
-                    </span>
-                    <span className="icon">
-                        <SiCodeforces />
-                    </span>
-                    <span className="icon">
-                        <SiCodechef />
-                    </span>
-                </div> */}
       <div className="info_container">
         <div className="contact_container">
             <h4>Contact Us</h4>
@@ -60,7 +46,7 @@ const Footer = () => {
             My Transactions
           </Link>
           <Link className="link" to="/Navodayans-Uplift-Association-27R/donate">
-            Donate
+            Pay Now
           </Link>
         </div>
       </div>

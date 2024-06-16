@@ -41,7 +41,7 @@ const Header = () => {
             My Transactions
           </Link>
           <Link className="link" to="/Navodayans-Uplift-Association-27R/donate">
-            Donate
+            Pay Now
           </Link>
         </div>
       )}
@@ -77,7 +77,7 @@ const Header = () => {
             My Transactions
           </Link>
           <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/donate">
-            Donate
+            Pay Now
           </Link>
           <Link className="mobile_link" onClick={()=>{auth.signOut();console.log(auth.currentUser)}}>
             Log Out

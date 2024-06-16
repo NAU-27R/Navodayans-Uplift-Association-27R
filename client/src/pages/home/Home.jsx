@@ -19,7 +19,6 @@ const Home = () => {
     if(!auth.currentUser)return;
     const token = await auth.currentUser.getIdToken();
         
-        // console.log("making request to see member status")
         axios
           .get("/isMember", {
             headers: {
@@ -28,7 +27,7 @@ const Home = () => {
           })
           .then((response) => {
             setMemberStatus(response.data.memberStatus);
-            // console.log("Member Status:",response.data.memberStatus);
+            
           })
           .catch((error) => {
             setMemberStatus(false);
@@ -56,19 +55,20 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <div className="motive">
-        <h2>Who We Are</h2>
-        <p>
+        <h2>Who we are</h2>
+        {/* <p>
         We are proud alumni of Jawahar Navodaya Vidyalaya, Raipur, 27th Batch (2012 - 2019). This community is dedicated to supporting each other through life's challenges by raising funds and assisting those in need. Join us in making a difference—donate today and help build a brighter future for our fellow members.
-        </p>
+        </p> */}
+        <p>The Navodayans Uplift Association 27r isn't your typical web development team. We're a passionate collective driven by the desire to empower through technology. We craft innovative and impactful web solutions, working hand-in-hand with our clients to translate their vision into a thriving online presence.</p>
       </div>
       {state === "Sign In" && <SignIn setState={setState} />}
       {state === "Sign Up" && <SignUp setState={setState} />}
-      {state === "authenticated" && verified && (
+      {/* {state === "authenticated" && verified && (
         <MessageWindow setVerified={setVerified} verified={verified} memberStatus={memberStatus} />
       )}
       {state === "authenticated" && !verified && (
         <MessageWindow setVerified={setVerified} verified={verified} memberStatus={memberStatus} />
-      )}
+      )} */}
     </div>
   );
 };
