@@ -71,7 +71,7 @@ const SignIn = ({ setState }) => {
           name="password"
           onChange={handleChange}
         />
-        <p className="privacy">By creating or accessing an account on this website you agree with our <Link to="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</Link></p>
+        <p className="privacy">By creating or accessing an account on this website you agree with our <Link to="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</Link> , <Link to="/Navodayans-Uplift-Association-27R/refund_policy" >Refund Policy</Link> And <Link to="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</Link></p>
         <button className="btn" type="submit">
           Sign In
         </button>

@@ -28,6 +28,13 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
       });
   };
 
+  const handleClick = (path)=>{
+    setTimeout(() => {
+      // console.log("dispatching")
+      dispatch(setPath(path))
+    }, 200);
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (auth.currentUser.emailVerified === true) {
@@ -73,7 +80,7 @@ const MessageWindow = ({ verified, setVerified, memberStatus}) => {
           {" "}
           Log Out
         </button>}
-        {verified && memberStatus && <Link className="donate_btn" to='/Navodayans-Uplift-Association-27R/donate'>
+        {verified && memberStatus && <Link className="donate_btn" onClick={() => handleClick("donate")}>
           {" "}
           <RiMoneyRupeeCircleLine size={25}/> Donate Here 
         </Link>}
