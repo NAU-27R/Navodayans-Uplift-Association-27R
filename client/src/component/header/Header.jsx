@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import { useDispatch } from "react-redux";
-import { setPath } from "../../features/pathSlice";
+
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../authentication/firebaseConfig";
 import { TfiMenu } from "react-icons/tfi";
@@ -17,49 +16,32 @@ const Header = () => {
       setShowMobileView(true);
     } else setShowMobileView(false);
   };
-  const dispatch = useDispatch();
 
-  const handleClick = (path)=>{
-    setTimeout(() => {
-      // console.log("dispatching")
-      dispatch(setPath(path))
-    }, 200);
-  }
   useEffect(() => {
-    // setTimeout(() => {
-    //   console.log("dispathcing ")
-    //   dispatch(setPath("/transactions"))
-    // }, 2000);
-
     checkScreeSize();
     window.addEventListener("resize", checkScreeSize);
-
     return () => {
       window.removeEventListener("resize", checkScreeSize);
     };
   }, []);
 
+  
+
   return (
     <div className="header_container">
       {!showMobileView && (
         <div className="link_container">
-          <Link className="link" onClick={() => handleClick("home")}>
+          <Link className="link" to="/Navodayans-Uplift-Association-27R">
             Home
           </Link>
-          <Link
-            className="link"
-            onClick={() => handleClick("members")}
-          >
+          <Link className="link" to="/Navodayans-Uplift-Association-27R/members">
             Members
           </Link>
-          <Link
-            className="link"
-            onClick={() => handleClick("transactions")}
-          >
+          <Link className="link" to="/Navodayans-Uplift-Association-27R/transactions">
             My Transactions
           </Link>
-          <Link className="link" onClick={() => handleClick("donate")}>
-            Pay Now
+          <Link className="link" to="/Navodayans-Uplift-Association-27R/donate">
+            Donate
           </Link>
         </div>
       )}
@@ -72,61 +54,32 @@ const Header = () => {
         {!showMobileView && (
           <>
             <p className="user_name">
-              {auth.currentUser ? auth.currentUser.email : "your@gmail.com"}
+              {auth.currentUser
+                ? auth.currentUser.email
+                : "your@gmail.com"}
             </p>
-            <button
-              onClick={() => {
-                auth.signOut();
-                 handleClick("home")
-              }}
-              className="log_out"
-            >
-              Log Out
-            </button>
+            <button onClick={()=>{auth.signOut(); navigate('/Navodayans-Uplift-Association-27R')}} className="log_out">Log Out</button>
           </>
         )}
       </div>
       {showMobileView && (
-        <TfiMenu
-          onClick={() => setShowMobileNavigation(!showMobileNavigation)}
-          cursor="pointer"
-          size={25}
-        />
+        <TfiMenu onClick={() => setShowMobileNavigation(!showMobileNavigation)} cursor="pointer" size={25} />
       )}
       {showMobileView && showMobileNavigation && (
-        <div
-          className="mobile_link_container"
-          id="mobile_link_container"
-          onClick={() => setShowMobileNavigation(false)}
-        >
-          <Link className="mobile_link" onClick={() => handleClick("home")}>
+        <div className="mobile_link_container" id="mobile_link_container" onClick={()=>setShowMobileNavigation(false)}>
+          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R" >
             Home
           </Link>
-          <Link
-            className="mobile_link"
-            onClick={() => handleClick("members")}
-          >
+          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/members">
             Members
           </Link>
-          <Link
-            className="mobile_link"
-            onClick={() => handleClick("transactions")}
-          >
+          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/transactions">
             My Transactions
           </Link>
-          <Link
-            className="mobile_link"
-            onClick={() => handleClick("donate")}
-          >
-            Pay Now
+          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/donate">
+            Donate
           </Link>
-          <Link
-            className="mobile_link"
-            onClick={() => {
-              auth.signOut();
-              handleClick("home");
-            }}
-          >
+          <Link className="mobile_link" onClick={()=>{auth.signOut();console.log(auth.currentUser)}}>
             Log Out
           </Link>
         </div>

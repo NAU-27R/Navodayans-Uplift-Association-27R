@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { provider, auth } from "./firebaseConfig";
-import { Link } from "react-router-dom";
 import {
   sendSignInLinkToEmail,
   createUserWithEmailAndPassword,
@@ -108,7 +107,7 @@ const SignUp = ({ setState }) => {
           name="password"
           onChange={handleChange}
         />
-        <p className="privacy">By creating or accessing an account on this website you agree with our <Link to="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</Link> , <Link to="/Navodayans-Uplift-Association-27R/refund_policy" >Refund Policy</Link> And <Link to="/Navodayans-Uplift-Association-27R/terms_conditions" >Terms and Conditions</Link></p>
+        <p className="privacy">By creating or accessing an account on this website you agree with our <a href="/Navodayans-Uplift-Association-27R/privacy_policy" >Privacy Policy</a></p>
         <button onClick={signup} className="btn" type="submit">
           Sign Up
         </button>

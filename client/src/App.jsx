@@ -1,9 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { auth } from './component/authentication/firebaseConfig'
-import { useSelector, useDispatch } from 'react-redux'
-import {setPath} from './features/pathSlice'
 
 import Header from './component/header/Header'
 import Footer from './component/footer/Footer'
@@ -13,18 +11,13 @@ import Transactions from './pages/transactions/Transactions'
 import Members from './pages/members/Members'
 import axios from 'axios'
 import TermsConditions from './pages/termsCondtions/TermsConditions'
-import PrivacyPolicy from './pages/policy/privacyPolicy'
-import RefundPolicy from './pages/policy/refundPolicy'
+import PrivacyPolicy from './pages/privacy_policy/privacyPolicy'
 import Page404 from './pages/404/page404'
-import { RiH1 } from 'react-icons/ri'
 
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
 
 const App = () => {
-  axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
   const [showHeader,setShowHeader] = useState(false);
-
-  const path = useSelector((state)=>state.path.value);
-  const dispatch = useDispatch();
 
   onAuthStateChanged(auth,(userCredentials)=>{
     if(userCredentials){
@@ -33,35 +26,20 @@ const App = () => {
     else setShowHeader(false);
   })
 
-  // useEffect(()=>{
-  //   console.log(path)
-  //   // setTimeout(() => {
-  //   //   dispatch(setPath("/members"))
-  //   // }, 2000);
-  // },[path])
-
   return (
     <BrowserRouter>
       {showHeader && <Header/>}
-      {path =="home" && <Home/>}
-      {path =="members" && <Members/>}
-      {path =="transactions" && <Transactions/>}
-      {path =="donate" && <Donate/>}
-      {path =="terms_conditions" && <TermsConditions/>}
-      {path =="privacy_policy" && <PrivacyPolicy/>}
-      {path =="refund_policy" && <RefundPolicy/>}
-      {/* <Routes>
+      <Routes>
         <Route path="/Navodayans-Uplift-Association-27R" element={<Home />} />
         <Route path="/Navodayans-Uplift-Association-27R/members" element={<Members />} />
         <Route path="/Navodayans-Uplift-Association-27R/transactions" element={<Transactions />} />
         <Route path="/Navodayans-Uplift-Association-27R/donate" element={<Donate />} />
         <Route path="/Navodayans-Uplift-Association-27R/terms_conditions" element={<TermsConditions />} />
         <Route path="/Navodayans-Uplift-Association-27R/privacy_policy" element={<PrivacyPolicy />} />
-        <Route path="/Navodayans-Uplift-Association-27R/refund_policy" element={<RefundPolicy />} />
         
-        <Route path='*' element={<Page404/>} />
-      </Routes> */}
-         <Footer/>
+        {/* <Route path='*' element={<Page404/>} /> */}
+      </Routes>
+        {showHeader && <Footer/>}
     </BrowserRouter>
   )
 }

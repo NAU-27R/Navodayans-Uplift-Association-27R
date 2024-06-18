@@ -1,0 +1,53 @@
+@import '../../mixins.scss';
+
+.policy_container {
+    padding: 10% 5% 10% 10%;
+    font-weight: 400;
+
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+        @include sm{
+            font-size: 1.25rem;
+        }
+        @include xsm{
+            font-size: 1.125rem;
+        }
+    }
+
+    p {
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        @include xsm{
+            font-size: .8rem;
+        }
+    }
+
+    .section {
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+            // margin-bottom: 0.5rem;
+            @include sm{
+                font-size: 1.125rem;
+            }
+            @include sm{
+                font-size: .9rem;
+            }
+        }
+
+        p {
+            margin: 0 0 .5rem 1.5rem;
+            font-size: .9rem;
+            
+            @include sm{
+                font-size: .8rem;
+            }
+            @include xsm{
+                font-size: .7rem;
+            }
+        }
+    }
+}
