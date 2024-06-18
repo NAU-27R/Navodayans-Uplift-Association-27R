@@ -44,22 +44,22 @@ const Footer = () => {
         </div>
         <div className="link_container">
           <h4>Pages</h4>
-          <Link className="link" to="/Navodayans-Uplift-Association-27R">
+          <Link className="link" to="">
             Home
           </Link>
           <Link
             className="link"
-            to="/Navodayans-Uplift-Association-27R/members"
+            to="/members"
           >
             Members
           </Link>
           <Link
             className="link"
-            to="/Navodayans-Uplift-Association-27R/transactions"
+            to="/transactions"
           >
             My Transactions
           </Link>
-          <Link className="link" to="/Navodayans-Uplift-Association-27R/donate">
+          <Link className="link" to="/donate">
             Donate
           </Link>
         </div>

@@ -31,16 +31,16 @@ const Header = () => {
     <div className="header_container">
       {!showMobileView && (
         <div className="link_container">
-          <Link className="link" to="/Navodayans-Uplift-Association-27R">
+          <Link className="link" to="">
             Home
           </Link>
-          <Link className="link" to="/Navodayans-Uplift-Association-27R/members">
+          <Link className="link" to="/members">
             Members
           </Link>
-          <Link className="link" to="/Navodayans-Uplift-Association-27R/transactions">
+          <Link className="link" to="/transactions">
             My Transactions
           </Link>
-          <Link className="link" to="/Navodayans-Uplift-Association-27R/donate">
+          <Link className="link" to="/donate">
             Donate
           </Link>
         </div>
@@ -58,7 +58,7 @@ const Header = () => {
                 ? auth.currentUser.email
                 : "your@gmail.com"}
             </p>
-            <button onClick={()=>{auth.signOut(); navigate('/Navodayans-Uplift-Association-27R')}} className="log_out">Log Out</button>
+            <button onClick={()=>{auth.signOut(); navigate('')}} className="log_out">Log Out</button>
           </>
         )}
       </div>
@@ -67,16 +67,16 @@ const Header = () => {
       )}
       {showMobileView && showMobileNavigation && (
         <div className="mobile_link_container" id="mobile_link_container" onClick={()=>setShowMobileNavigation(false)}>
-          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R" >
+          <Link className="mobile_link" to="" >
             Home
           </Link>
-          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/members">
+          <Link className="mobile_link" to="/members">
             Members
           </Link>
-          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/transactions">
+          <Link className="mobile_link" to="/transactions">
             My Transactions
           </Link>
-          <Link className="mobile_link" to="/Navodayans-Uplift-Association-27R/donate">
+          <Link className="mobile_link" to="/donate">
             Donate
           </Link>
           <Link className="mobile_link" onClick={()=>{auth.signOut();console.log(auth.currentUser)}}>

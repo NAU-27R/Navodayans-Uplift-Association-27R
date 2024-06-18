@@ -11,7 +11,8 @@ import Transactions from './pages/transactions/Transactions'
 import Members from './pages/members/Members'
 import axios from 'axios'
 import TermsConditions from './pages/termsCondtions/TermsConditions'
-import PrivacyPolicy from './pages/privacy_policy/privacyPolicy'
+import PrivacyPolicy from './pages/policy/privacyPolicy'
+import RefundPolicy from './pages/policy/refundPolicy'
 import Page404 from './pages/404/page404'
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_BASE_URL;
@@ -27,15 +28,16 @@ const App = () => {
   })
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/Navodayans-Uplift-Association-27R'>
       {showHeader && <Header/>}
       <Routes>
-        <Route path="/Navodayans-Uplift-Association-27R" element={<Home />} />
-        <Route path="/Navodayans-Uplift-Association-27R/members" element={<Members />} />
-        <Route path="/Navodayans-Uplift-Association-27R/transactions" element={<Transactions />} />
-        <Route path="/Navodayans-Uplift-Association-27R/donate" element={<Donate />} />
-        <Route path="/Navodayans-Uplift-Association-27R/terms_conditions" element={<TermsConditions />} />
-        <Route path="/Navodayans-Uplift-Association-27R/privacy_policy" element={<PrivacyPolicy />} />
+        <Route path="" element={<Home />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/terms_conditions" element={<TermsConditions />} />
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+        <Route path="/refund_policy" element={<RefundPolicy />} />
         
         {/* <Route path='*' element={<Page404/>} /> */}
       </Routes>
